@@ -1,5 +1,5 @@
-server1=["gbl06671","gbl06672","gbl06673","gbl06674","gbl06675"]
-server2=["hk06671","hk06672","hk06673","hk06674","hk06675"]
+server1=("gbl06671","gbl06672","gbl06673","gbl06674","gbl06675")
+server2=("hk06671","hk06672","hk06673","hk06674","hk06675")
 print("Server1 Elements :", server1)
 print("Server2 Elements :",server2)
 server=server1+server2
@@ -17,9 +17,9 @@ print("Reverse List",number.pop(5))
 print("After Pop from list",number)
 
 server_append=[]
-title=["Server_Name","IP_Address","Superstack_Version","Operating_System"]
-s1=["gbl06662","182.17.6.20","rhel_2.7.3","Linux"]
-s2=["gbl06663","182.17.6.21","rhel_2.7.3","Linux"]
+title=("Server_Name","IP_Address","Superstack_Version","Operating_System")
+s1=("gbl06662","182.17.6.20","rhel_2.7.3","Linux")
+s2=("gbl06663","182.17.6.21","rhel_2.7.3","Linux")
 server_append.append(title)
 server_append.append(s1)
 server_append.append(s2)

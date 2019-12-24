@@ -3,17 +3,26 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-               echo "Mahesh" 
+              sh('echo \$BUILD_NUMBER > example-\$BUILD_NUMBER.md')
             }
         }
-        stage('Test') { 
+        stage('commit') { 
             steps {
-                echo "Mahesh1"
+                sh('''
+                    git checkout -B $TARGET_BRANCH
+                    git add . && git commit -am "[Jenkins CI] Add build file"
+                ''')
             }
         }
-        stage('Deploy') { 
+        stage('push') { 
+            environment { 
+                GIT_AUTH = credentials('Mahesh_Credential') 
+            }
             steps {
-               echo "Mahesh2"
+                sh('''
+                    git config --local credential.helper "!f() { echo username=\\$Username; echo password=\\$Password; }; f"
+                    git push origin HEAD:$TARGET_BRANCH
+                ''')
             }
         }
     }
